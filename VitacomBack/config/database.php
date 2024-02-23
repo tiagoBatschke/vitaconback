@@ -46,7 +46,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	', '127.0.0.1'),
+            'host' => env('h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('yabkn8w0kmg8y2ma', 'forge'),
             'username' => env('rne8f2o87yjxjytv', 'forge'),
