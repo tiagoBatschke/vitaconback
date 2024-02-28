@@ -43,16 +43,23 @@ class AuthController extends Controller
 
 
     public function Register(RegiserRequest $request){
-
     	try{
 
     		$user = User::create([
-    			'name' => $request->name,
-    			'email' => $request->email,
-    			'password' => Hash::make($request->password) 
-    		]);
+				'name' => $request->name,
+				'email' => $request->email,
+				'password' => Hash::make($request->password),
+				'status' => $request->status, // Adiciona o campo "status" à criação do usuário
+				'role' => $request->role,
+				'telefone' => $request->telefone,
+				'cnpj' => $request->cnpj,
+				'contato' => $request->contato,
+
+			]);
     		$token = $user->createToken('app')->accessToken;
 
+
+			
     		return response([
     			'message' => "Registration Successfull",
     			'token' => $token,

@@ -12,9 +12,9 @@ class RegiserRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    { 
+    {
         return true;
-    } 
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,7 +26,12 @@ class RegiserRequest extends FormRequest
         return [
             'name' => 'required|max:55',
             'email' => 'required|unique:users|min:5|max:60',
-            'password' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed',
+            'status' => 'required|in:ativo,inativo', 
+            'role' => 'required|in:cliente,admin',
+            'telefone' => 'required|string|max:20', 
+            'cnpj' => 'required|string|unique:users|max:20', 
+            'contato' => 'required|string|max:255', 
         ];
     }
 }
