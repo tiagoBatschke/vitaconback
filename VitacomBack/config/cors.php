@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://testevitacon-bd7d417ef875.herokuapp.com/'], 
+    'allowed_origins' => ['https://main--vitacontestefront.netlify.app'], 
 
     'allowed_origins_patterns' => [],
 
