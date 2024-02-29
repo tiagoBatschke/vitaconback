@@ -30,7 +30,7 @@ class ProjetoController extends Controller
             $projeto = Projeto::create([
                 'nome' => $request->nome,
                 'cliente_id' => $request->cliente_id,
-                'tipo' => $request->tipo,
+                'tipos' => $request->tipos,
             ]);
     
             return response()->json([
