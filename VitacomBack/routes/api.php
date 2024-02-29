@@ -8,6 +8,7 @@ use App\Http\Controllers\ResetController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProjetoController;
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -38,3 +39,10 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show']);
 Route::post('/clientes', [ClienteController::class, 'store']);
 Route::put('/clientes/{id}', [ClienteController::class, 'update']);
 Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
+
+
+Route::get('/projetos', [ProjetoController::class, 'index']);
+Route::get('/projetos/{id}', [ProjetoController::class, 'show']);
+Route::post('/projetos', [ProjetoController::class, 'store']);
+Route::put('/projetos/{id}', [ProjetoController::class, 'update']);
+Route::delete('/projetos/{id}', [ProjetoController::class, 'destroy']);
