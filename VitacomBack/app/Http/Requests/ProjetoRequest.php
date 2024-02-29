@@ -13,7 +13,7 @@ class ProjetoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // Defina como `true` se não houver restrições de autorização
     }
 
     /**
@@ -24,7 +24,26 @@ class ProjetoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|string|max:255',
+            'cliente_id' => 'required|exists:clientes,id', // Verifica se o cliente com o ID fornecido existe na tabela de clientes
+            'tipos' => 'required|string|max:255',
+            // Adicione outras regras de validação conforme necessário
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'nome.required' => 'O campo nome é obrigatório.',
+            'cliente_id.required' => 'O campo cliente é obrigatório.',
+            'cliente_id.exists' => 'O cliente selecionado não existe.',
+            'tipos.required' => 'O campo tipos é obrigatório.',
+            // Adicione outras mensagens de erro conforme necessário
         ];
     }
 }

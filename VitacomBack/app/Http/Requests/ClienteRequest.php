@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjetoRequest extends FormRequest
+class ClienteRequest  extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,13 @@ class ProjetoRequest extends FormRequest
     {
         return [
             'nome' => 'required|string|max:255',
-            'cliente_id' => 'required|exists:clientes,id', // Verifica se o cliente com o ID fornecido existe na tabela de clientes
-            'tipos' => 'required|string|max:255',
+            'cnpj' => 'required|string|unique:clientes|max:255',
+            'contato' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'telefone' => 'nullable|string|max:255',
+            'celular' => 'nullable|string|max:255',
+            'logo' => 'nullable|string|max:255',
+            'status' => 'required|string|in:ativo,inativo',
             // Adicione outras regras de validação conforme necessário
         ];
     }
@@ -40,10 +45,9 @@ class ProjetoRequest extends FormRequest
     {
         return [
             'nome.required' => 'O campo nome é obrigatório.',
-            'cliente_id.required' => 'O campo cliente é obrigatório.',
-            'cliente_id.exists' => 'O cliente selecionado não existe.',
-            'tipos.required' => 'O campo tipos é obrigatório.',
-            // Adicione outras mensagens de erro conforme necessário
-        ];
+            'cnpj.required' => 'O campo CNPJ é obrigatório.',
+            'cnpj.unique' => 'Este CNPJ já está em uso.',
+            'status.required' => 'O campo status é obrigatório.',
+            'status.in' => 'O campo status deve ser "ativo" ou "inativo".'];
     }
 }
