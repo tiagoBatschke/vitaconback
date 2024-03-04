@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\ImagemController;
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
