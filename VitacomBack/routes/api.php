@@ -9,7 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProjetoController;
-use App\Http\Controllers\ImagemController;
+
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -41,7 +41,7 @@ Route::post('/clientes', [ClienteController::class, 'store']);
 Route::put('/clientes/{id}', [ClienteController::class, 'update']);
 Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
 
-Route::post('/upload-imagem', [ImagemController::class, 'uploadImagem']);
+
 
 Route::get('/projetos', [ProjetoController::class, 'index']);
 Route::get('/projetos/{id}', [ProjetoController::class, 'show']);
