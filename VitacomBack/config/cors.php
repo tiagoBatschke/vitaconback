@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://main--vitacontestefront.netlify.app', 'http://localhost:5173'], 
+    'allowed_origins' => ['https://vitacontestefront.netlify.app/', 'http://localhost:5173'], 
 
     'allowed_origins_patterns' => [],
 
