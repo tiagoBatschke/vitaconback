@@ -31,6 +31,7 @@ class ProjetoController extends Controller
                 'nome' => $request->nome,
                 'cliente_id' => $request->cliente_id,
                 'tipos' => $request->tipos,
+                'status' => $request->status,
             ]);
     
             return response()->json([

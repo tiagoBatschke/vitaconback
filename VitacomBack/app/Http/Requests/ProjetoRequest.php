@@ -43,6 +43,7 @@ class ProjetoRequest extends FormRequest
             'cliente_id.required' => 'O campo cliente é obrigatório.',
             'cliente_id.exists' => 'O cliente selecionado não existe.',
             'tipos.required' => 'O campo tipos é obrigatório.',
+            'status' => 'required|string|in:ativo,inativo',
             // Adicione outras mensagens de erro conforme necessário
         ];
     }
