@@ -10,6 +10,7 @@ use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\BairroController;
+use App\Http\Controllers\CidadesController;
 
 
 
@@ -55,3 +56,9 @@ Route::get('/bairros/{id}', [BairroController::class, 'show']);
 Route::post('/bairros', [BairroController::class, 'store']);
 Route::put('/bairros/{id}', [BairroController::class, 'update']);
 Route::delete('/bairros/{id}', [BairroController::class, 'destroy']);
+
+Route::get('/cidades', [CidadesController::class, 'index']);
+Route::get('/cidades/{id}', [CidadesController::class, 'show']);
+Route::post('/cidades', [CidadesController::class, 'store']);
+Route::put('/cidades/{id}', [CidadesController::class, 'update']);
+Route::delete('/cidades/{id}', [CidadesController::class, 'destroy']);
