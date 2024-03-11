@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\BairroController;
 
 
 
@@ -48,3 +49,9 @@ Route::get('/projetos/{id}', [ProjetoController::class, 'show']);
 Route::post('/projetos', [ProjetoController::class, 'store']);
 Route::put('/projetos/{id}', [ProjetoController::class, 'update']);
 Route::delete('/projetos/{id}', [ProjetoController::class, 'destroy']);
+
+Route::get('/bairros', [BairroController::class, 'index']);
+Route::get('/bairros/{id}', [BairroController::class, 'show']);
+Route::post('/bairros', [BairroController::class, 'store']);
+Route::put('/bairros/{id}', [BairroController::class, 'update']);
+Route::delete('/bairros/{id}', [BairroController::class, 'destroy']);
