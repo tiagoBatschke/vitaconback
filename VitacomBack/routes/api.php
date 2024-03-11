@@ -25,6 +25,8 @@ Route::post('/login',[AuthController::class, 'Login']);
  // Register Routes 
 Route::post('/register',[AuthController::class, 'Register']);
 
+Route::middleware('auth:api')->get('/check-token', [AuthController::class, 'checkToken']);
+
  // Forget Password Routes 
 Route::post('/forgetpassword',[ForgetController::class, 'ForgetPassword']);
 

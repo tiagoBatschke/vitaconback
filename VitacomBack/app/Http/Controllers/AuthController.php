@@ -73,12 +73,24 @@ class AuthController extends Controller
 	    	}
 
 
-
-
-    } // end mehtod 
-
-
-
+			
+		} // end mehtod 
+		
+		
+		
+		public function checkToken(Request $request)
+		{
+			try {
+				// Verifica se o usuário está autenticado usando o token fornecido
+				if (Auth::check()) {
+					return response()->json(['message' => 'Token válido!'], 200);
+				}
+			} catch (\Exception $exception) {
+				return response()->json(['message' => $exception->getMessage()], 400);
+			}
+	
+			return response()->json(['message' => 'Token inválido'], 401);
+		}
 
 
 }
