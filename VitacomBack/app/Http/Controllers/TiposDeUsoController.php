@@ -61,7 +61,7 @@ class TiposDeUsoController extends Controller
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
-        $projeto->update($request->all());
+        $tipoDeUso->update($request->all());
 
         return response()->json(['message' => 'tipo De Uso atualizado com sucesso'], 200);
     }
