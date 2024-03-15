@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -11,14 +13,15 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\BairroController;
 use App\Http\Controllers\CidadesController;
-
+use App\Http\Controllers\TiposDeUsoController;
+use App\Http\Controllers\ImageUploadController;
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
  
-
+Route::post('/upload-image', [ImageUploadController::class, 'uploadImage']);
  // Login Routes 
 Route::post('/login',[AuthController::class, 'Login']);
 
@@ -64,3 +67,10 @@ Route::get('/cidades/{id}', [CidadesController::class, 'show']);
 Route::post('/cidades', [CidadesController::class, 'store']);
 Route::put('/cidades/{id}', [CidadesController::class, 'update']);
 Route::delete('/cidades/{id}', [CidadesController::class, 'destroy']);
+
+
+Route::get('/tiposDeUso', [TiposDeUsoController::class, 'index']);
+Route::get('/tiposDeUso/{id}', [TiposDeUsoController::class, 'show']);
+Route::post('/tiposDeUso', [TiposDeUsoController::class, 'store']);
+Route::put('/tiposDeUso/{id}', [TiposDeUsoController::class, 'update']);
+Route::delete('/tiposDeUso/{id}', [TiposDeUsoController::class, 'destroy']);
