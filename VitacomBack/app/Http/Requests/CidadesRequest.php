@@ -26,6 +26,7 @@ class CidadesRequest extends FormRequest
         return [
             'nome' => 'required|string|max:255',
             'uf' => 'required|string|max:255',
+            'bairro' => 'required|exists:bairros,id',
         ];
     }
 }

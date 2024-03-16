@@ -31,6 +31,7 @@ class CidadesController extends Controller
             $Cidade =  Cidades::create([
                 'nome' => $request->nome,
                 'uf' => $request->uf,
+                'bairro' => $request ->bairro
             ]);
 
             return response()->json([
@@ -55,6 +56,7 @@ class CidadesController extends Controller
         $validator = Validator::make($request->all(), [
             'nome' => 'required|string|max:255',
             'uf' => 'required|string|max:255',
+            'bairro' => 'required|exists:bairros,id',
             // Adicione outras regras de validação conforme necessário
         ]);
 
