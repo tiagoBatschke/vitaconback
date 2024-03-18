@@ -52,8 +52,6 @@ class AuthController extends Controller
 				'status' => $request->status, // Adiciona o campo "status" à criação do usuário
 				'role' => $request->role,
 				'telefone' => $request->telefone,
-				'cnpj' => $request->cnpj,
-				'contato' => $request->contato,
 				'client_id' => $request->client_id,
 
 			]);

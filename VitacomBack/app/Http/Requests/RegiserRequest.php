@@ -30,8 +30,6 @@ class RegiserRequest extends FormRequest
             'status' => 'required|in:ativo,inativo', 
             'role' => 'required|in:cliente,admin',
             'telefone' => 'required|string|max:20', 
-            'cnpj' => 'required|string|unique:users|max:20', 
-            'contato' => 'required|string|max:255', 
             'client_id' => 'exists:clientes,id',
         ];
     }

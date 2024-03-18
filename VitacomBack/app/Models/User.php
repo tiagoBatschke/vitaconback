@@ -25,8 +25,6 @@ class User extends Authenticatable
         'role',
         'logo',
         'telefone',
-        'cnpj',
-        'contato',
         'client_id'
     ];
 
