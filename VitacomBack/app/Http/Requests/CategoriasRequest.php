@@ -13,7 +13,7 @@ class CategoriasRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // Defina a autorização conforme necessário
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|string|max:255', // Defina as regras de validação para o campo 'nome'
+            'nome' => 'required|string|max:255',
         ];
     }
 }
