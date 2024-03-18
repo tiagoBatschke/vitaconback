@@ -15,6 +15,7 @@ use App\Http\Controllers\BairroController;
 use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\TiposDeUsoController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\CategoriaController;
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -50,6 +51,13 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show']);
 Route::post('/clientes', [ClienteController::class, 'store']);
 Route::put('/clientes/{id}', [ClienteController::class, 'update']);
 Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
+
+
+Route::get('/categorias', [CategoriaController::class, 'index']);
+Route::get('/categorias/{id}', [CategoriaController::class, 'show']);
+Route::post('/categorias', [CategoriaController::class, 'store']);
+Route::put('/categorias/{id}', [CategoriaController::class, 'update']);
+Route::delete('/categorias/{id}', [CategoriaController::class, 'destroy']);
 
 
 
