@@ -23,10 +23,9 @@ class AllUsersController extends Controller
         }
     }
 
-    function getUserByClient (Request $request) {
-        $clientId = $request->input('client_id');
+    function getUserByClient (Request $request, $id) {
     
-        $users = User::where('client_id', $clientId)->get();
+        $users = User::where('client_id', $id)->get();
     
         return response()->json($users);
     }
