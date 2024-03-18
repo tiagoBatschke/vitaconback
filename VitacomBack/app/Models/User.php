@@ -26,7 +26,8 @@ class User extends Authenticatable
         'logo',
         'telefone',
         'cnpj',
-        'contato'
+        'contato',
+        'client_id'
     ];
 
     /**

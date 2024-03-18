@@ -39,6 +39,9 @@ Route::post('/resetpassword',[ResetController::class, 'ResetPassword']);
  // Current User Route 
 Route::get('/user',[UserController::class, 'User'])->middleware('auth:api');
 
+
+Route::get('/UserByClient',[AllUsersController::class, 'getUserByClient']);
+
  // Current User Route 
 Route::get('/allusers',[AllUsersController::class, 'User'])->middleware('auth:api');
 

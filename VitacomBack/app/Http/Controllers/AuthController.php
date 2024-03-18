@@ -54,6 +54,7 @@ class AuthController extends Controller
 				'telefone' => $request->telefone,
 				'cnpj' => $request->cnpj,
 				'contato' => $request->contato,
+				'client_id' => $request->client_id,
 
 			]);
     		$token = $user->createToken('app')->accessToken;

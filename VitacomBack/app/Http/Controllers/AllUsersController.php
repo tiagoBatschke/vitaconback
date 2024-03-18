@@ -22,4 +22,12 @@ class AllUsersController extends Controller
             return response()->json(['user' => $user], 200);
         }
     }
+
+    function getUserByClient (Request $request) {
+        $clientId = $request->input('client_id');
+    
+        $users = User::where('client_id', $clientId)->get();
+    
+        return response()->json($users);
+    }
 }

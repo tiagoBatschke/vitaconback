@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddBairroIdToCidades extends Migration
+class RemoveClientIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddBairroIdToCidades extends Migration
      */
     public function up()
     {
-        Schema::table('cidades', function (Blueprint $table) {
-            $table->foreignId('bairro')->constrained('bairros');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('client_id');
         });
     }
 
@@ -25,10 +25,8 @@ class AddBairroIdToCidades extends Migration
      */
     public function down()
     {
-        Schema::table('cidades', function (Blueprint $table) {
-                // Removendo a coluna 'bairro'
-                $table->dropForeign(['bairro']);
-                $table->dropColumn('bairro');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('client_id')->nullable()->constrained('clients');
         });
     }
 }
