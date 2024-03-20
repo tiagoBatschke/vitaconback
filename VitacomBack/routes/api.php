@@ -16,6 +16,8 @@ use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\TiposDeUsoController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\PoiController;
+use App\Http\Controllers\DiferenciaisController;
 
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -85,3 +87,15 @@ Route::get('/tiposDeUso/{id}', [TiposDeUsoController::class, 'show']);
 Route::post('/tiposDeUso', [TiposDeUsoController::class, 'store']);
 Route::put('/tiposDeUso/{id}', [TiposDeUsoController::class, 'update']);
 Route::delete('/tiposDeUso/{id}', [TiposDeUsoController::class, 'destroy']);
+
+Route::get('/poi', [PoiController::class, 'index']);
+Route::get('/poi/{id}', [PoiController::class, 'show']);
+Route::post('/poi', [PoiController::class, 'store']);
+Route::put('/poi/{id}', [PoiController::class, 'update']);
+Route::delete('/poi/{id}', [PoiController::class, 'destroy']);
+
+Route::get('/diferenciais', [DiferenciaisController::class, 'index']);
+Route::get('/diferenciais/{id}', [DiferenciaisController::class, 'show']);
+Route::post('/diferenciais', [DiferenciaisController::class, 'store']);
+Route::put('/diferenciais/{id}', [DiferenciaisController::class, 'update']);
+Route::delete('/diferenciais/{id}', [DiferenciaisController::class, 'destroy']);
