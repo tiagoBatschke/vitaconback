@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Diferencial;
+use App\Models\Diferenciais;
 use Illuminate\Http\Request;
 use App\Http\Requests\DiferencialRequest;
 
@@ -15,7 +15,7 @@ class DiferenciaisController extends Controller
      */
     public function index()
     {
-        $diferenciais = Diferencial::all();
+        $diferenciais = Diferenciais::all();
         return response()->json($diferenciais);
     }
 
@@ -25,10 +25,22 @@ class DiferenciaisController extends Controller
      * @param  \Illuminate\Http\DiferencialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DiferencialRequest $request)
-    {
-        $diferencial = Diferencial::create($request->validated());
-        return response()->json($diferencial, 201);
+    public function store(DiferencialRequest $request){
+        try {
+            $diferencial = Diferenciais::create([
+                'nome' => $request->nome,
+                'area_comum' => $request->area_comum,
+            ]);
+    
+            return response()->json([
+                'message' => 'diferencial criado com sucesso',
+                'diferencial' => $diferencial
+            ], 201);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'message' => 'Erro ao criar Diferenciais: ' . $exception->getMessage()
+            ], 400);
+        }
     }
 
     /**
@@ -39,7 +51,7 @@ class DiferenciaisController extends Controller
      */
     public function show($id)
     {
-        $diferencial = Diferencial::findOrFail($id);
+        $diferencial = Diferenciais::findOrFail($id);
         return response()->json($diferencial);
     }
 
@@ -52,7 +64,7 @@ class DiferenciaisController extends Controller
      */
     public function update(DiferencialRequest $request, $id)
     {
-        $diferencial = Diferencial::findOrFail($id);
+        $diferencial = Diferenciais::findOrFail($id);
         $diferencial->update($request->validated());
         return response()->json($diferencial, 200);
     }
@@ -65,7 +77,7 @@ class DiferenciaisController extends Controller
      */
     public function destroy($id)
     {
-        $diferencial = Diferencial::findOrFail($id);
+        $diferencial = Diferenciais::findOrFail($id);
         $diferencial->delete();
         return response()->json(null, 204);
     }
