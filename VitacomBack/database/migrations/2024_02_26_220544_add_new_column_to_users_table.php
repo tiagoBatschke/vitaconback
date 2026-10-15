@@ -9,14 +9,14 @@ class AddNewColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('status', ['ativo', 'inativo'])->default('ativo');
+            $table->string('role')->default('admin');
         });
     }
 
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('status');
+            $table->dropColumn('role');
         });
     }
 }
