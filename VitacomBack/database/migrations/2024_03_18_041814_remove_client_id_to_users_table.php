@@ -13,9 +13,11 @@ class RemoveClientIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('client_id');
-        });
+        if (Schema::hasColumn('users', 'client_id')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('client_id');
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class RemoveClientIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('client_id')->nullable()->constrained('clients');
-        });
+        if (!Schema::hasColumn('users', 'client_id')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->foreignId('client_id')->nullable()->constrained('clients');
+            });
+        }
     }
 }
