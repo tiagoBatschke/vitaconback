@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+vendor
+.git
+storage/id_rsa
+storage/oauth-*.key
+storage/logs/*
